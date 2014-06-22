@@ -1,0 +1,45 @@
+
+/* Style for Admin */
+.jw_admin_wrap{background:#fff; padding:15px; border:1px solid #ddd; border-radius:4px; margin-top:25px; margin-right:25px; color:#3D566E;}
+.jw_admin_wrap h2{color:#3D566E; border-bottom:1px solid #e5e5e5;}
+.jw_admin_wrap h3{color:#3D566E;line-height:normal;}
+.jw_admin_wrap h3 code{padding:5px 20px; border-radius:3px; font-size:14px; font-weight:300;}
+
+.jw_admin_wrap table.front_item_list,
+table.jw_easy_pricint_col_list{border-radius:4px; margin-top:15px; overflow:hidden; box-shadow:none; border-bottom:0;}
+.jw_admin_wrap table.front_item_list tr:nth-child(1),
+table.jw_easy_pricint_col_list tr:nth-child(1){background:#19B698;}
+.jw_admin_wrap table.front_item_list tr th{color:#fff; font-weight:bold; padding-top:14px; padding-bottom:12px;}
+
+.jw_admin_wrap table.front_item_list td,
+table.jw_easy_pricint_col_list td{border-bottom:1px solid #ddd; padding-top:18px; padding-bottom:16px;}
+.jw_admin_wrap table.front_item_list table tr th:last-child,
+.jw_admin_wrap table.front_item_list table tr td:last-child{text-align:center;}
+.jw_admin_wrap table.tablefront_item_list table tr:last-child{border-bottom:0;}
+
+.jw_admin_wrap .green_btn{border:1px solid #19B698 !important;}
+.jw_admin_wrap .green_btn,
+.jw_admin_wrap .red_btn{background:#fff !important; color:#3D566E !important; border-radius:3px; padding:5px 15px !important; height:40px !important; cursor:pointer; font-size:14px !important; box-shadow:0 !important;}
+.jw_admin_wrap .green_btn:hover,
+.jw_admin_wrap .red_btn:hover{background:#19B698 !important; color:#fff !important;  border-color:#19B698 !important;box-shadow:none !important;}
+
+.jw_admin_wrap .red_btn{border:1px solid #fb948b !important;}
+.jw_admin_wrap .red_btn:hover{background:#e74c3c !important;  border-color:#e74c3c !important;}
+
+.jw_admin_wrap .green_solid{background:#19B698 !important; color:#fff !important;}
+.jw_admin_wrap .green_solid:hover{background:#e74c3c !important; border-color:#e74c3c !important;}
+
+/* Style for Add new pricing table */
+table.add_new_pricing_tbl,
+table.add_new_pricing_col{border-radius:4px; padding:15px;}
+table.add_new_pricing_tbl th,
+table.add_new_pricing_col th{ width:160px;}	
+.add_new_pricing_tbl input[type="text"],
+.add_new_pricing_tbl textarea,
+table.add_new_pricing_col input[type="text"],
+table.add_new_pricing_col select{box-shadow:none !important; border-radius:3px; padding:5px 10px; height:40px; width:45%;}
+.add_new_pricing_tbl textarea{height:150px;}
+
+table.jw_easy_pricint_col_list tr:nth-child(1) th{height:30px; color:#fff !important; font-weight:bold !important}
+
+
