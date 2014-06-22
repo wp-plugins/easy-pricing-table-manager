@@ -44,7 +44,7 @@
 		
 		var i = $('input').size() + 1;
 		
-		$('<div id="box' + i +'"><tr><td><input type="text" name="features[]" placeholder="Add Another Features" /><img src="<?php echo plugins_url('easy-pricing-table/img/remove.png');?>" width="24" height="24" border="0" align="top" class="add" id="remove" style="cursor:pointer; margin-left:10px; margin-top:8px;"/></td></tr></div>').appendTo(inp);
+		$('<div id="box' + i +'"><tr><td><input type="text" name="features[]" placeholder="Add Another Features" /><img src="<?php echo plugins_url('easy-pricing-table-manager/img/remove.png');?>" width="24" height="24" border="0" align="top" class="add" id="remove" style="cursor:pointer; margin-left:10px; margin-top:8px;"/></td></tr></div>').appendTo(inp);
 		
 		i++;
 		
@@ -73,7 +73,7 @@
                 
                 <tr><th><label>Price</label></th><td><input type="text" placeholder="Add Price Rate" name="price" /></td></tr>
                 
-                <tr><th><label>Pricing Feature</label></th><td><input type="text"   placeholder="Add Pricing Features" name="features[]" /><img src="<?php echo plugins_url('easy-pricing-table/img/add.png');?>" width="24" height="24" border="0" align="top" class="add" id="add" style="cursor:pointer; margin-left:10px; margin-top:8px;"/></td></tr>
+                <tr><th><label>Pricing Feature</label></th><td><input type="text"   placeholder="Add Pricing Features" name="features[]" /><img src="<?php echo plugins_url('easy-pricing-table-manager/img/add.png');?>" width="24" height="24" border="0" align="top" class="add" id="add" style="cursor:pointer; margin-left:10px; margin-top:8px;"/></td></tr>
                 <tr><td></td><td><div id="box"></div></td></tr> 
                 
                  <tr><th><label>Time Duration</label></th><td>
