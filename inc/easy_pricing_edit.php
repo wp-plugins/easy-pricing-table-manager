@@ -105,7 +105,7 @@
 				<?php  
                 $ft = explode(';',$pricing_features);//separate  the features 
                 for($i = 0; $i < count($ft); $i++){?>
-                <tr class="remove_tr"><th>Pricing Feature <?php echo $i;?></th><td><input type="text" value="<?php echo stripcslashes($ft[$i]);?>" name="features[]" required/><img src="<?php echo plugins_url('easy-pricing-table/img/remove.png');?>" width="24" height="24" border="0" align="top"class="remove_edit" id="<?php echo $i;?>" style="cursor:pointer; margin-left:10px; margin-top:10px;"/></td></tr>
+                <tr class="remove_tr"><th>Pricing Feature <?php echo $i;?></th><td><input type="text" value="<?php echo stripcslashes($ft[$i]);?>" name="features[]" required/><img src="<?php echo plugins_url('easy-pricing-table-manager/img/remove.png');?>" width="24" height="24" border="0" align="top"class="remove_edit" id="<?php echo $i;?>" style="cursor:pointer; margin-left:10px; margin-top:10px;"/></td></tr>
                 <?php }?>
                 
                  <tr><td></td><td><div id="box"></div></td></tr>                        
