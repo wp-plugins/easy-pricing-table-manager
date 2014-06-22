@@ -65,7 +65,7 @@
 		
 		var i = $('input').size() + 1;
 		
-		$('<div id="box' + i +'"><tr><td><input type="text" name="features[]" placeholder="Add Another Features" /><img src="<?php echo plugins_url('easy-pricing-table/img/remove.png');?>" width="24" height="24" border="0" align="top" class="add" id="remove"  style="cursor:pointer; margin-left:10px; margin-top:10px;" /></td></tr></div>').appendTo(inp);
+		$('<div id="box' + i +'"><tr><td><input type="text" name="features[]" placeholder="Add Another Features" /><img src="<?php echo plugins_url('easy-pricing-table-manager/img/remove.png');?>" width="24" height="24" border="0" align="top" class="add" id="remove"  style="cursor:pointer; margin-left:10px; margin-top:10px;" /></td></tr></div>').appendTo(inp);
 		
 		i++;		
 		});
@@ -100,7 +100,7 @@
                 
                 <tr><th><label>Price</label></th><td><input type="text" name="price" value="<?php if($price!='')echo esc_attr($price);?>" /></td></tr>
                 
-                <tr><th><label>Pricing Feature</label></th><td style="font-size:16px; padding-top:15px;">Add New Feature Input box<img src="<?php echo plugins_url('easy-pricing-table/img/add.png');?>" width="24" height="24" border="0" align="top" class="add" id="add" style="cursor:pointer; margin-left:10px; margin-top:2px;"/></td></tr>
+                <tr><th><label>Pricing Feature</label></th><td style="font-size:16px; padding-top:15px;">Add New Feature Input box<img src="<?php echo plugins_url('easy-pricing-table-manager/img/add.png');?>" width="24" height="24" border="0" align="top" class="add" id="add" style="cursor:pointer; margin-left:10px; margin-top:2px;"/></td></tr>
 
 				<?php  
                 $ft = explode(';',$pricing_features);//separate  the features 
