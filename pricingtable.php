@@ -2,7 +2,7 @@
 /*---------------------------------------------------------
 Plugin Name: Easy Pricing Table
 
-Plugin URI: http://jwthemes.com/easy-pricing-table/
+Plugin URI: https://wordpress.org/plugins/easy-pricing-table-manager/
 
 Description: Easy Pricing Table plugin allow you to create Beautiful Pricing table or Comparison Table with smooth hover effects in just a few minutes. You can Embed in any post/page using shortcode <code>[easy-pricing-table table_name="Pricing Table Name"]</code> or you can add through widgets.
 
