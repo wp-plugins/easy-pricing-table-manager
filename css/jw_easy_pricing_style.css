@@ -33,4 +33,15 @@
 .pricing_table li span.rounded{border:4px solid #fff; border-radius:50%; height:110px; width:110px; display:block; margin:0 auto; font-size:36px; line-height:36px; color:#fff; padding-top:25px;}
 .pricing_table li span.rounded span{display:block; font-size:18px; line-height:18px; font-weight:300;}
 
-.jw_easy_pricint_tbl_col{width:23%; margin-left:1.6%; float:left;}
+.jw_easy_pricing_tbl_col{width:23%; margin-left:1.6%; float:left;}
+
+
+
+@media (min-width:600px) and (max-width:980px){	
+	.jw_easy_pricing_tbl_col{width:47.5%; margin-left:1.6%;}
+	div.jw_easy_pricing_tbl_col:nth-of-type(3){clear:both}
+}
+
+@media (max-width:600px){		
+	.jw_easy_pricing_tbl_col{width:96%; margin-left:2%;}
+}

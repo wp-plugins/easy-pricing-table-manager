@@ -158,16 +158,16 @@ function pricing_function($atts){
             <style>
             
             .pricing_table_wrap li a:hover{ background:<?php echo $row->theme_color;?> !important; text-decoration:none}
-            .jw_easy_pricint_tbl_col2{width:46% !important; }
-            .jw_easy_pricint_tbl_col3{width:30% !important; }
+            .jw_easy_pricing_tbl_col2{width:46% !important; }
+            .jw_easy_pricing_tbl_col3{width:30% !important; }
             
             
             </style>
             
                 <?php if($row->list_no=="2"){            
-                	echo "<div class='jw_easy_pricint_tbl_col jw_easy_pricint_tbl_col2'>";}
-                	else if($row->list_no=="3"){ echo "<div class='jw_easy_pricint_tbl_col jw_easy_pricint_tbl_col3'>";}
-                	else if ($row->list_no=="4"){echo "<div class='jw_easy_pricint_tbl_col'>";}?>
+                	echo "<div class='jw_easy_pricing_tbl_col jw_easy_pricing_tbl_col2'>";}
+                	else if($row->list_no=="3"){ echo "<div class='jw_easy_pricing_tbl_col jw_easy_pricing_tbl_col3'>";}
+                	else if ($row->list_no=="4"){echo "<div class='jw_easy_pricing_tbl_col'>";}?>
                     <div class="pricing_table">
                         <h3 style="background:<?php echo esc_attr($row->title_back); ?> !important;"><?php echo esc_html(stripcslashes( $row->title));?></h3>
                         <ul>
@@ -278,16 +278,16 @@ class easy_pricing_table_widget extends WP_Widget{
             <style>
             
             .pricing_table_wrap li a:hover{ background:<?php echo $row->theme_color;?> !important; text-decoration:none}
-            .jw_easy_pricint_tbl_col2{width:46% !important; }
-            .jw_easy_pricint_tbl_col3{width:30% !important; }
+            .jw_easy_pricing_tbl_col2{width:46% !important; }
+            .jw_easy_pricing_tbl_col3{width:30% !important; }
             
             
             </style>
             
                 <?php if($row->list_no=="2"){            
-                	echo "<div class='jw_easy_pricint_tbl_col jw_easy_pricint_tbl_col2'>";}
-                	else if($row->list_no=="3"){ echo "<div class='jw_easy_pricint_tbl_col jw_easy_pricint_tbl_col3'>";}
-                	else if ($row->list_no=="4"){echo "<div class='jw_easy_pricint_tbl_col'>";}?>
+                	echo "<div class='jw_easy_pricing_tbl_col jw_easy_pricing_tbl_col2'>";}
+                	else if($row->list_no=="3"){ echo "<div class='jw_easy_pricing_tbl_col jw_easy_pricing_tbl_col3'>";}
+                	else if ($row->list_no=="4"){echo "<div class='jw_easy_pricing_tbl_col'>";}?>
                     <div class="pricing_table">
                         <h3 style="background:<?php echo esc_attr($row->title_back); ?> !important;"><?php echo esc_html(stripcslashes($row->title));?></h3>
                         <ul>
