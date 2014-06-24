@@ -54,7 +54,7 @@ If you've tried all the obvious stuff and it's still not working please request 
 == Changelog ==
 
 = 1.1.0 =
-* Updated Responisve Issue
+* Updated Responsive Issue
 
 
 = 1.0.0 =
