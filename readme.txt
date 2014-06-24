@@ -3,7 +3,7 @@ Contributors: jwthemes
 Donate link: 
 Tags: easy pricing table, comparison table, price, price gird, price table, pricing, pricing box, pricing gird, pricing table, table, offer, page, plugin, plugins, Post, posts, price table, pricing table, special offer, widget, plan table, price comparison, price table, price table plugin, price table widget, product table
 Tested up to: 3.9
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,10 @@ If you've tried all the obvious stuff and it's still not working please request 
 7. Updating form of Existing data of Pricing Column
 
 == Changelog ==
+
+= 1.1.0 =
+* Updated Responisve Issue
+
 
 = 1.0.0 =
 * Initial release of Easy Pricing Table, Date: June 15, 2014
