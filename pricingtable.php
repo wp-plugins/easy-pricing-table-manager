@@ -2,11 +2,11 @@
 /*---------------------------------------------------------
 Plugin Name: Easy Pricing Table
 
-Plugin URI: http://jwthemes.com/easy-pricing-table/
+Plugin URI: https://wordpress.org/plugins/easy-pricing-table-manager/
 
 Description: Easy Pricing Table plugin allow you to create Beautiful Pricing table or Comparison Table with smooth hover effects in just a few minutes. You can Embed in any post/page using shortcode <code>[easy-pricing-table table_name="Pricing Table Name"]</code> or you can add through widgets.
 
-Version: 1.1.0
+Version: 1.2.0
 
 Author: JW Themes
 
@@ -169,11 +169,12 @@ function pricing_function($atts){
                 	else if($row->list_no=="3"){ echo "<div class='jw_easy_pricing_tbl_col jw_easy_pricing_tbl_col3'>";}
                 	else if ($row->list_no=="4"){echo "<div class='jw_easy_pricing_tbl_col'>";}?>
                     <div class="pricing_table">
-                        <h3 style="background:<?php echo esc_attr($row->title_back); ?> !important;"><?php echo esc_html(stripcslashes( $row->title));?></h3>
+                        <h3 style="background:<?php echo esc_attr($row->title_back); ?> !important;"><?php echo esc_html(stripcslashes( $row->title));?>
+                        </h3>
                         <ul>
                             <li style="background:<?php echo esc_attr($row->column_color);?>;"><span class="rounded"><?php echo esc_html($row->price);?>
-                            <span>/<?php if($row->time_duration=='2'){echo week;}
-                            else if($row->time_duration=='3'){ echo yr;}
+                            <span>/<?php if($row->time_duration=='2'){echo "week";}
+                            else if($row->time_duration=='3'){ echo "yr";} else if($row->time_duration=='4'){ echo "hr";}
                             else { echo "mo";}?></span></span></li>
                             <?php 
                             $wordChunks = explode(';',$row->pricing_features);//separate  the features 
@@ -183,6 +184,7 @@ function pricing_function($atts){
                             <li style="background:<?php echo $row->column_color;?>;"><a href="<?php if(!empty($buy_txt['url'])){ echo esc_url($buy_txt['url']);} else { echo "#";}?>"><?php if(!empty($buy_txt['txt'])){ echo esc_attr($buy_txt['txt']);} else { echo "Buy Now";}?></a></li>
                         </ul>
                     </div>
+                    
                 </div>            
             
          <?php }?>          
@@ -190,6 +192,7 @@ function pricing_function($atts){
     </section>
     
 <?php
+return ob_get_clean();
 }
 class easy_pricing_table_widget extends WP_Widget{
 
@@ -292,8 +295,8 @@ class easy_pricing_table_widget extends WP_Widget{
                         <h3 style="background:<?php echo esc_attr($row->title_back); ?> !important;"><?php echo esc_html(stripcslashes($row->title));?></h3>
                         <ul>
                             <li style="background:<?php echo $row->column_color;?>;"><span class="rounded"><?php echo esc_html($row->price);?>
-                            <span>/<?php if($row->time_duration=='2'){echo week;}
-                            else if($row->time_duration=='3'){ echo yr;}
+                            <span>/<?php if($row->time_duration=='2'){echo "week";}
+                            else if($row->time_duration=='3'){ echo "yr";}else if($row->time_duration=='4'){ echo "hr";}
                             else { echo "mo";}?></span></span></li>
                             <?php 
                             $wordChunks = explode(';',$row->pricing_features);//separate  the features 

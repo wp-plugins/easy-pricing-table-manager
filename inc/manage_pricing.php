@@ -81,6 +81,7 @@
                  <option value="1">Per Month</option>
                  <option value="2">Per Week</option>
                  <option value="3">Per Year</option>
+                 <option value="4">Per Hour</option>
                  </select>                 
                  </td></tr>
                  
