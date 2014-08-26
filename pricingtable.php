@@ -44,9 +44,9 @@ function activate_easy_pricing_table(){
 	 	$sql1="CREATE TABLE $table_name(
 		pid int NOT NULL AUTO_INCREMENT,
 		title varchar(50),
-		price varchar(40),
+		price varchar(80),
 		column_color varchar(30),
-		time_duration varchar(30),
+		time_duration varchar(170),
 		buy_txt varchar(170),
 		pricing_features varchar(300),
 		set_priority int,
@@ -154,7 +154,7 @@ function pricing_function($atts){
         <?php 
             global $wpdb;
             $rows = $wpdb->get_results("SELECT * from ".$wpdb->prefix."pricing_detail INNER JOIN ".$wpdb->prefix."pricing_table where ".$wpdb->prefix."pricing_detail.pricing_t_id = "."".$wpdb->prefix."pricing_table.id"." AND ".$wpdb->prefix."pricing_table.pricing_table='".$atts['table_name']."' ORDER BY set_priority ASC limit ".$row->list_no);
-            foreach($rows as $row){$buy_txt=unserialize($row->buy_txt);?>
+            foreach($rows as $row){$buy_txt=unserialize($row->buy_txt); $tme_duration = unserialize($row->time_duration);?>
             <style>
             
             .pricing_table_wrap li a:hover{ background:<?php echo $row->theme_color;?> !important; text-decoration:none}
@@ -172,10 +172,17 @@ function pricing_function($atts){
                         <h3 style="background:<?php echo esc_attr($row->title_back); ?> !important;"><?php echo esc_html(stripcslashes( $row->title));?>
                         </h3>
                         <ul>
+                        	<?php if(isset($tme_duration['time_durt']) AND $tme_duration['sh_t']=='s_t'){?>
+                            
                             <li style="background:<?php echo esc_attr($row->column_color);?>;"><span class="rounded"><?php echo esc_html($row->price);?>
-                            <span>/<?php if($row->time_duration=='2'){echo "week";}
-                            else if($row->time_duration=='3'){ echo "yr";} else if($row->time_duration=='4'){ echo "hr";}
-                            else { echo "mo";}?></span></span></li>
+                            <span><span>/<?php if($tme_duration['time_durt']=='2'){echo "hr";}
+                            else if($tme_duration['time_durt']=='3'){ echo "wk";} else if($tme_duration['time_durt']=='4'){ echo "mo";}
+                            else if($tme_duration['time_durt']=='5') {echo "yr";}else if($tme_duration['time_durt']=='6') {echo "ot";} else{ echo "pm";}?>
+                            </span></span></li>
+                            <?php } else {?>
+                           <li style="background:<?php echo esc_attr($row->column_color);?>;"><span class="rounded"><?php echo esc_html($row->price);?></span>
+                           </li>
+                            <?php }?>
                             <?php 
                             $wordChunks = explode(';',$row->pricing_features);//separate  the features 
                             for($i = 0; $i < count($wordChunks); $i++){

@@ -17,7 +17,7 @@
 		if($pid!=$_GET['id']){ echo "Enter the new team detail by clicking above button"; echo $pid;}else{
         echo "<table class='list-table widefat fixed jw_easy_pricint_col_list'>";
         echo "<tr><th style='width:6%;'>Priority</th><th style='width:10%;'>Title</th><th style='width:6%;'>Price</th><th style='width:42%;'>Features</th><th style='width:10%;'>Column Color</th><th style='width:10%;'>Time Duration</th><th style='width:16%;'>Action</th></tr>";
-        foreach ($rows as $row ){if($row->pricing_t_id==$_GET['id']){?>
+        foreach ($rows as $row ){if($row->pricing_t_id==$_GET['id']){$tme_duration = unserialize($row->time_duration);?>
             <tr class="easy_pricing_list">
             <td class="easy_pricing_list_title"><?php echo esc_attr($row->set_priority);?></td>
             <td class="easy_pricing_list_title"><?php echo stripcslashes($row->title);?></td>
@@ -32,7 +32,9 @@
              <?php }?>
             </td>
             <td class="easy_pricing_list_title"><input type="text" style="width:45px;background:<?php echo $row->column_color;?>"/></td>
-            <td class="easy_pricing_list_title"><?php if($row->time_duration=="1"){ echo "Per Month";} else if($row->time_duration=="2"){ echo "Per Week";} else {echo "Per Year";}?></td>
+            <td class="easy_pricing_list_title"><?php if($tme_duration['time_durt']=='2'){echo "Per Hour";}
+                            else if($tme_duration['time_durt']=='3'){ echo "Per Week";} else if($tme_duration['time_durt']=='4'){ echo "Per Month";}
+                            else if($tme_duration['time_durt']=='5') {echo "Per Year";}else if($tme_duration['time_durt']=='6') {echo "One Time";} else{ echo "Per Minute";}?></td>
             <td class="easy_pricing_list_action"><a href='<?php echo admin_url('admin.php?page=easy_pricing_edit&table_id='.$_GET['id'].'&id='.$row->pid );?>' 
    			class="green_btn">Edit</a> 
      		<a href="#" id="<?php echo $row->pid;?>" class="red_btn easy_pricing_list_details_delete">Remove</a></td>	

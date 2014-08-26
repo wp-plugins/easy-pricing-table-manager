@@ -6,7 +6,8 @@
 		$price = sanitize_text_field($_POST['price']);
 		$theme_color = sanitize_text_field($_POST['theme_color']);
 		$pricing_id = sanitize_text_field($_POST['pricing_t_id']);
-		$time_duration = sanitize_text_field($_POST['time_duration']);
+		$time_duration = array('time_durt'=>mysql_real_escape_string($_POST['time_duration']),'sh_t'=>mysql_real_escape_string($_POST['sh_time_durt']), 
+		array('%s','%s'));
 		$buy_txt = array('url'=>mysql_real_escape_string($_POST['buy_url']),'txt'=>mysql_real_escape_string($_POST['buy_txt']), array('%s','%s'));
 		$pricing_id = sanitize_text_field($_POST['pricing_t_id']);
 		
@@ -20,7 +21,7 @@
 			array('title'=>$title,
 			'price'=>$price,
 			'column_color'=>$theme_color,
-			'time_duration'=>$time_duration,
+			'time_duration'=>serialize($time_duration),
 			'buy_txt'=> serialize($buy_txt),
 			'pricing_features'=>$features,
 			'set_priority'=>$set_priority
@@ -30,7 +31,7 @@
 				' %s',
 				' %s ',
 				' %s ',
-				' %d ',
+				' %s ',
 				' %s ',
 				' %s ',
 				' %d ',
@@ -48,7 +49,7 @@
 		foreach($rows as $row){
 			$title=$row->title;
 			$theme_color=$row->column_color;
-			$time_duration = $row->time_duration;
+			$tme_duration = unserialize($row->time_duration);
 			$buy_txt=unserialize($row->buy_txt);
 			$price=$row->price;
 			$set_priority=$row->set_priority;
@@ -96,7 +97,7 @@
         
         	<table class="wp-list-table widefat fixed add_new_pricing_col">
         	
-            	<tr><th><label>Title</label></th><td><input type="text" name="title" value="<?php if($title!='')echo esc_attr($title);?>"/></td></tr>
+            	<tr><th><label>Title</label></th><td><input type="text" name="title" value="<?php if(isset($title)) echo esc_attr($title);?>"/></td></tr>
                 
                 <tr><th><label>Price</label></th><td><input type="text" name="price" value="<?php if($price!='')echo esc_attr($price);?>" /></td></tr>
                 
@@ -112,25 +113,17 @@
                  
                  <tr><th><label>Time Duration</label></th><td>
                  <select name="time_duration">
-                 <?php if(esc_attr($time_duration)=="1"){
-					echo '<option value="1">Per Month</option>';
-					echo '<option value="2">Per Week</option>';
-					echo '<option value="3">Per Year</option>';
-				 }
-				else if(esc_attr($time_duration)=="2"){
-					echo '<option value="2">Per Week</option>';
-					echo '<option value="3">Per Year</option>';
-					echo '<option value="1">Per Month</option>';
-
-				}
-				else if(esc_attr($time_duration)=="3"){
-					echo '<option value="3">Per Year</option>';
-					echo '<option value="2">Per Week</option>';
-					echo '<option value="1">Per Month</option>';
-				}
-				 ?>
+                 <option value="1" <?php if($tme_duration['time_durt']=='1'){?> selected<?php }?> >Per Minute</option>
+                 <option value="2" <?php if($tme_duration['time_durt']=='2'){?> selected<?php }?> >Per Hour</option>
+                 <option value="3" <?php if($tme_duration['time_durt']=='3'){?> selected<?php }?> >Per Week</option>
+                 <option value="4" <?php if($tme_duration['time_durt']=='4'){?> selected<?php }?> >Per Month</option>
+                 <option value="5" <?php if($tme_duration['time_durt']=='5'){?> selected<?php }?> >Per Year</option>
+                 <option value="6" <?php if($tme_duration['time_durt']=='6'){?> selected<?php }?> >One Time</option>
+                 
                  </select>                 
                  </td></tr>
+                              <!--Show hide time duration new features 1.2.1!-->
+                 <tr><th></th><td><input type="radio" name="sh_time_durt" value="s_t" <?php if(isset($tme_duration['sh_t']) AND $tme_duration['sh_t']=='s_t'){?> checked <?php }?> >Show &nbsp;<input type="radio" value="h_t" name="sh_time_durt" <?php if(isset($tme_duration['sh_t']) AND $tme_duration['sh_t']=='h_t'){?> checked <?php }?> >Hide</td></tr>
                  
                   <tr><th><label>Buy Now Text</label></th><td><input type="text" name="buy_txt" id="buy_txt" value="<?php echo esc_attr($buy_txt['txt']); ?>" /></td></tr>
                   

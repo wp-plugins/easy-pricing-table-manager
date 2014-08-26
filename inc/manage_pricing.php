@@ -5,7 +5,8 @@
 		$price = sanitize_text_field($_POST['price']);
 		$theme_color = sanitize_text_field($_POST['theme_color']);
 		$pricing_id = sanitize_text_field($_POST['pricing_t_id']);
-		$time_duration = sanitize_text_field($_POST['time_duration']);
+		$time_duration = array('time_durt'=>mysql_real_escape_string($_POST['time_duration']),'sh_t'=>mysql_real_escape_string($_POST['sh_time_durt']));
+		
 		$buy_txt = array('url'=>mysql_real_escape_string($_POST['buy_url']),'txt'=>mysql_real_escape_string($_POST['buy_txt']), array('%s','%s'));
 		global $wpdb;
 		$select_priority=$wpdb->get_var($wpdb->prepare("SELECT set_priority FROM ".$wpdb->prefix."pricing_detail where set_priority = %d", $_POST['set_priority']));
@@ -18,12 +19,12 @@
 		$sql = $wpdb->query( $wpdb->prepare("
 			INSERT INTO ".$wpdb->prefix."pricing_detail
 			( title, price, column_color, time_duration, buy_txt, pricing_features, set_priority, pricing_t_id)
-			VALUES ( %s, %s, %s, %d, %s, %s, %d, %d )", 
+			VALUES ( %s, %s, %s, %s, %s, %s, %d, %d )", 
 			array(
 			$title, 
 			$price, 
 			$theme_color,
-			$time_duration,
+			serialize($time_duration),
 			serialize($buy_txt),
 			$features,
 			$set_priority,
@@ -71,19 +72,24 @@
         	
             	<tr><th><label>Title</label></th><td><input type="text" name="title"  placeholder="Add Title"/></td></tr>
                 
-                <tr><th><label>Price</label></th><td><input type="text" placeholder="Add Price Rate" name="price" /></td></tr>
+                <tr><th><label>Price</label></th><td><input type="text" placeholder="Add Price Rate eg: $555" name="price" /></td></tr>
                 
                 <tr><th><label>Pricing Feature</label></th><td><input type="text"   placeholder="Add Pricing Features" name="features[]" /><img src="<?php echo plugins_url('easy-pricing-table-manager/img/add.png');?>" width="24" height="24" border="0" align="top" class="add" id="add" style="cursor:pointer; margin-left:10px; margin-top:8px;"/></td></tr>
                 <tr><td></td><td><div id="box"></div></td></tr> 
                 
                  <tr><th><label>Time Duration</label></th><td>
                  <select name="time_duration">
-                 <option value="1">Per Month</option>
-                 <option value="2">Per Week</option>
-                 <option value="3">Per Year</option>
-                 <option value="4">Per Hour</option>
+                 <option value="1">Per Minute</option>
+                 <option value="2">Per Hour</option>
+                 <option value="3">Per Week</option>
+                 <option value="4">Per Month</option>
+                 <option value="5">Per Year</option>
+                 <option value="6">One Time</option>
                  </select>                 
                  </td></tr>
+                 
+                 <!--Show hide time duration new features 1.2.1!-->
+                 <tr><th></th><td><input type="radio" name="sh_time_durt" value="s_t">Show &nbsp;<input type="radio" value="h_t" name="sh_time_durt">Hide</td></tr>
                  
                   <tr><th><label>Buy Now Text</label></th><td><input type="text" name="buy_txt" id="buy_txt" value="Buy Now" /></td></tr>
                   
