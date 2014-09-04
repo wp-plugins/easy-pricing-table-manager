@@ -25,7 +25,7 @@ Description: Easy Pricing Table plugin allow you to create Beautiful Pricing tab
 
 = Demo =
 
-[Click here](http://jwthemes.com/easy-pricing-table/) to see Easy Pricing Table Manager in live action.
+[Click here](http://wpress9.com/easy-pricing-table-jw-themes/) to see Easy Pricing Table Manager in live action.
 
 == Installation ==
 
